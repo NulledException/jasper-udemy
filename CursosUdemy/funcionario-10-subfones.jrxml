@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="funcionario-10-subfones" pageWidth="180" pageHeight="30" columnWidth="180" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="b4b859c4-3469-49c0-9e1d-8b1c4ea966d2">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MySQL UDEMY Data Adapter "/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<parameter name="id_funcionario" class="java.lang.Long"/>
+	<queryString>
+		<![CDATA[SELECT DISTINCT
+	T.NUMERO, T.TIPO_FONE
+	FROM TELEFONES T, FUNCIONARIOS F
+	WHERE T.ID_FUNCIONARIO =  $P{id_funcionario}]]>
+	</queryString>
+	<field name="NUMERO" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="NUMERO"/>
+		<property name="com.jaspersoft.studio.field.label" value="NUMERO"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="telefones"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="TIPO_FONE" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="TIPO_FONE"/>
+		<property name="com.jaspersoft.studio.field.label" value="TIPO_FONE"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="telefones"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<detail>
+		<band height="30">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<textField>
+				<reportElement x="0" y="0" width="90" height="30" uuid="db32b2c5-189c-4b4f-8e43-558df0f786a9">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box rightPadding="5"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{TIPO_FONE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="90" y="0" width="90" height="30" uuid="ab7a41c8-2ade-45bc-a3a5-29f6aeaab4db">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box leftPadding="5"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{NUMERO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
